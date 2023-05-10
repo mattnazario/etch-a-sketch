@@ -1,0 +1,30 @@
+* {
+    background-color: thistle;
+
+}
+.container {
+    padding: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: space-between;
+    align-items: center;
+    flex: auto;
+
+}
+
+.square{    
+    background-color: white;    
+    width: 20px;
+    height: 20px;
+    
+}
+
+.row {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    align-items: center;
+    
+    flex: auto;
+}
