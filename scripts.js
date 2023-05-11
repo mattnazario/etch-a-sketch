@@ -1,21 +1,40 @@
 
-let container = document.querySelector(".container");
-let r = true;
-makeGrid(5,5,container,r);
+let button = document.querySelector("#make-grid-button");
+let gridSize = document.querySelector("#grid-size-input");
+let size;
+let randomColor = false;
+let colorSwapper = document.querySelector("#color");
+colorSwapper.addEventListener("click",swapColor);
 
+button.addEventListener("click",makeGrid);
 
+let resetButton = document.querySelector("#reset-button");
+resetButton.addEventListener("click",makeGrid);
 
+function swapColor(e){
+    randomColor = !randomColor;
+    colorSwapper.classList.toggle("colorful");
+    makeGrid();
+}
 
-function makeGrid(width,height,parent,randomColor){
+function makeGrid(evt){
+    if(!gridSize.value){
+        size = 16;
+    }else{
+        size = parseInt(gridSize.value);    
+    }
+    let parent = document.querySelector(".container");
+    let gridText = document.querySelector("#grid-size-text");
+    
     removeGrid(parent);
-    if(width > 100) width = 100;
-    if(height> 100) height = 100;    
+    if(size > 100) width = 100;  
+    gridText.textContent = `${size} x ${size}`;
 
-    for(let i=0;i<height;i++){
+    for(let i=0;i<size;i++){
         let rowContainer = document.createElement("div");    
         rowContainer.classList.add("row");
 
-        for(let j=0;j<width;j++){
+        for(let j=0;j<size;j++){
 
             let square = document.createElement("div");
             square.classList.add("square");
